@@ -8,10 +8,10 @@ fi
 
 echo "Started pinging URL: ${URL}"
 
-RESPONSE = ""
-PREVIOUS_RESPONSE = ""
+RESPONSE=""
+PREVIOUS_RESPONSE=""
 while true; do
-	PREVIOUS_RESPONSE = $RESPONSE
+	PREVIOUS_RESPONSE=$RESPONSE
 	RESPONSE=$(curl -s -k "$URL" & wait)
 	
 	if [ -z RESPONSE ] || [ RESPONSE != PREVIOUS_RESPONSE ]; then
