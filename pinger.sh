@@ -11,13 +11,12 @@ echo "Started pinging URL: ${URL}"
 RESPONSE=""
 PREVIOUS_RESPONSE=""
 while true; do
-	PREVIOUS_RESPONSE=$RESPONSE
 	RESPONSE=$(curl -s -k "$URL" & wait)
-	
-	if [ -z RESPONSE ] || [ RESPONSE != PREVIOUS_RESPONSE ]; then
+	if [ -z "$RESPONSE" ] || [ RESPONSE != PREVIOUS_RESPONSE ]; then
 		echo "Response changed: ${RESPONSE}"
 	fi
 
 	# Sleep and loop
+	PREVIOUS_RESPONSE=$RESPONSE
 	sleep $INTERVAL & wait
 done
