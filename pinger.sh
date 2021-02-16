@@ -15,7 +15,7 @@ while true; do
 	RESPONSE=$(curl -s -k "$URL" & wait)
 	
 	if [ -z RESPONSE ] || [ RESPONSE != PREVIOUS_RESPONSE ]; then
-		echo "Duck DNS response changed: ${RESPONSE}"
+		echo "Response changed: ${RESPONSE}"
 	fi
 
 	# Sleep and loop
